@@ -33,7 +33,7 @@ FILE_INTERFACES="/etc/network/interfaces"
 FILE_NM_CONF="/etc/NetworkManager/NetworkManager.conf"
 FILE_NM_CONNECTION="/etc/NetworkManager/system-connections/default"
 
-URL_RAW_BASE="https://raw.githubusercontent.com/home-assistant/supervised-installer/master/files"
+URL_RAW_BASE="https://raw.githubusercontent.com/kuzmichDev/supervised-installer/master/files"
 URL_VERSION="https://version.home-assistant.io/stable.json"
 URL_BIN_APPARMOR="${URL_RAW_BASE}/hassio-apparmor"
 URL_BIN_HASSIO="${URL_RAW_BASE}/hassio-supervisor"
@@ -111,9 +111,6 @@ if [[ "$answer" =~ "y" ]] || [[ "$answer" =~ "Y" ]]; then
     info "Replacing /etc/network/interfaces"
     curl -sL "${URL_INTERFACES}" > "${FILE_INTERFACES}";
 fi
-
-info "Restarting NetworkManager"
-systemctl restart "${SERVICE_NM}"
 
 # Parse command line parameters
 while [[ $# -gt 0 ]]; do
